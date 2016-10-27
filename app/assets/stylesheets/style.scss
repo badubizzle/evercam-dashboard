@@ -220,6 +220,14 @@ th {
   }
 }
 
+@media (max-width: 767px){
+
+  .my-row {
+    margin-top: 25px;
+  }
+
+}
+
 /* General styles for all menus */
 #cbp-spmenu-s1 ul {
   padding-left:0;
@@ -407,3 +415,12 @@ a:hover, a:focus {
   overflow-y: hidden;
 }
 
+.thumbnail-img {
+  width: 35px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.list-padding {
+  padding: 3px 7px 4px;
+}

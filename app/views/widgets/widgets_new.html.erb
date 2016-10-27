@@ -22,7 +22,7 @@
                 cameras.</p>
             </div>
           <% else %>
-            <div class="col-md-5">
+            <div class="col-md-5 padding-right-14">
               <form id="widget-new" role="form" method="post" class="center-block">
                 <div class="widget-input form-group">
                   <div class="my-row">
@@ -104,6 +104,26 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
 <script>
+
+  function formatState (state) {
+    if (!state.id) { return state.text; }
+    var $state = $(
+      '<span><img src="'+ "https://media.evercam.io/v1/cameras/" + state.element.value.toLowerCase() + "/thumbnail?api_id=<%= current_user.api_id %>&api_key=<%= current_user.api_key %>" + '" class="thumbnail-img" /> ' + state.text + '</span>'
+    );
+    return $state;
+  };
+
+  $("#widget-camera").select2({
+    templateResult: formatState,
+  });
+
+  $(".select2-selection").css({
+    "background-color": "#EEEEEE",
+    height: "100%",
+    padding: "4px 6px",
+    border: "none"
+  });
+
   $(document).ready(function () {
     jQuery(document).ready(function () {
       Metronic.init(); // init metronic core components

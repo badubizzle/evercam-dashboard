@@ -84,13 +84,26 @@ border-bottom: 1px solid rgba(16, 28, 39, 0.58);
 
 .copy-from .dropdown-menu {
   max-height: 75vh;
-  min-width: 230px;
+  min-width: 280px;
   margin-left: 24px;
 }
 
 .copy-from .dropdown-menu li > a {
   text-align: left;
   padding-left: 5px !important;
+  display: inline-block;
+}
+
+.copy-from .dropdown-menu li:hover {
+
+  a {
+    color: $white;
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
+
 }
 
 .copy-from .cameras-dropdown-toggle {

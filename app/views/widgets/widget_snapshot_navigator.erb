@@ -97,6 +97,27 @@
 
 <script type="text/javascript">
   var lastSelectedDate, iframeWindow;
+
+  function formatState (state) {
+    if (!state.id) { return state.text; }
+    var $state = $(
+      '<span><img src="'+ "https://media.evercam.io/v1/cameras/" + state.element.value.toLowerCase() + "/thumbnail?api_id=<%= current_user.api_id %>&api_key=<%= current_user.api_key %>" + '" class="thumbnail-img" /> ' + state.text + '</span>'
+    );
+    return $state;
+  };
+
+  $("#widget-camera").select2({
+    templateResult: formatState,
+    Width: "100%"
+  });
+
+  $(".select2-selection").css({
+    "background-color": "#EEEEEE",
+    height: "100%",
+    padding: "4px 9px",
+    border: "none"
+  });
+
   $(document).ready(function () {
     $('#widget-datetime').datetimepicker({
       timepicker: false,
