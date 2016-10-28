@@ -28,7 +28,7 @@
                         <td><label class="control-label" for="camera-vendor">Vendor:</label></td>
                         <td>
                           <select id="camera-vendor" name="camera-vendor" class="form-control makeEditable">
-                            <option value="">-- select vendor --</option>
+                            <option value="">Select Vendor</option>
                           </select>
                           <input type="hidden" id="last-selected-vendor" value="<%= @camera['vendor_id'] %>">
                         </td>
@@ -54,15 +54,13 @@
                       <tr>
                         <td><label class="control-label" for="snapshot">Snapshot URL:</label></td>
                         <td>
-                          <input id="snapshot-readonly" class="form-control snapshot-readonly hide" disabled value="<%= @camera.deep_fetch('external', 'http', 'jpg') { '' }.sub("http://#{@camera.deep_fetch('external', 'host') { '' }}", '').sub(":#{@camera.deep_fetch('external', 'http', 'port') { '' }}", '') %>"/>
-                          <input type="text" id="snapshot" name="snapshot" placeholder="Not yet provided" class="form-control makeEditable" value="<%= @camera.deep_fetch('external', 'http', 'jpg') { '' }.sub("http://#{@camera.deep_fetch('external', 'host') { '' }}", '').sub(":#{@camera.deep_fetch('external', 'http', 'port') { '' }}", '') if @camera.deep_fetch('external', 'http', 'jpg') { '' } %>">
+                          <input type="text" id="snapshot" name="snapshot" placeholder="Not yet provided" class="form-control makeEditable" disabled value="<%= @camera.deep_fetch('external', 'http', 'jpg') { '' }.sub("http://#{@camera.deep_fetch('external', 'host') { '' }}", '').sub(":#{@camera.deep_fetch('external', 'http', 'port') { '' }}", '') if @camera.deep_fetch('external', 'http', 'jpg') { '' } %>">
                         </td>
                       </tr>
                       <tr>
                         <td><label class="control-label" for="snapshot">RTSP:</label></td>
                         <td>
-                          <input type="text" id="rtsp" name="rtsp" placeholder="Not yet provided" class="form-control makeEditable" value="<% if @camera.deep_fetch('external', 'rtsp', 'h264').present? %><%= @camera.deep_fetch('external', 'rtsp' , 'h264') { '' }.sub("rtsp://#{@camera.deep_fetch('external', 'host') { '' }}", '').sub(":#{@camera.deep_fetch('external', 'rtsp', 'port') { '' }}", '') %><% else %><%= "Not available" %>
-                          <% end %>">
+                          <input type="text" id="rtsp" name="rtsp" placeholder="Not yet provided" class="form-control makeEditable" disabled value="<% if @camera.deep_fetch('external', 'rtsp', 'h264').present? %><%= @camera.deep_fetch('external', 'rtsp' , 'h264') { '' }.sub("rtsp://#{@camera.deep_fetch('external', 'host') { '' }}", '').sub(":#{@camera.deep_fetch('external', 'rtsp', 'port') { '' }}", '') %><% end %>">
                         </td>
                       </tr>
                     </table>
