@@ -145,23 +145,21 @@ format_online_log = (logs) ->
   return logs
 
 getTime2 = (online, offline) ->
-  s = "";
+  s = ""
   days = online.diff(offline, "days")
   hours = online.diff(offline, "hours")
   minutes = online.diff(offline, "minutes")
   total_seconds = online.diff(offline, "seconds")
 
   if days > 0
-    s += online.diff(offline, "days") + " days, ";
+    s += online.diff(offline, "days") + " days, "
   if hours > 0
-    s += online.diff(offline, "hours") + " hours, ";
+    s += online.diff(offline, "hours") + " hours, "
   if minutes > 0
-    s += online.diff(offline, "minutes") + " mins, ";
+    s += online.diff(offline, "minutes") + " mins, "
   seconds = total_seconds - ((days*24) + (hours*60) + (minutes*60))
-  s += seconds + " seconds";
-
-  return s;
-
+  s += seconds + " seconds"
+  return s
 
 getOfflineCause = (row) ->
   switch row.extra.reason
